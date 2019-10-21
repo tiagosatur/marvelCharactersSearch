@@ -1,4 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Provider } from 'react-redux'
+import store from './store';
+import { Router, Scene, Stack } from 'react-native-router-flux';
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,44 +10,20 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import { Home } from './screens';
+import { Header } from './components';
 
-import mountURL from './services/api/url';
 
 const App = () => {
-
-  function makeFetch() {
-      fetch(mountURL(), {
-          method: 'get',
-          headers: new Headers({
-              'Accept': 'application/json',
-              'Content-Type': 'application/json; charset=utf-8'
-          }),
-      })
-      .then(res => res.json())
-      .then(res => {
-        console.log(res)
-      });
-  }
-
-  useEffect(() => {
-    makeFetch();
-
-  }, []);  
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-         
-          <View style={styles.body}>
-            <Text>Marvel</Text>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
+    return (
+        <Provider store={store}>
+            <Router>
+                <Stack key="root">
+                    <Scene key="home" component={Home} initial navBar={Header} />
+                </Stack>
+            </Router>
+        </Provider>
+    );
 };
 
 const styles = StyleSheet.create({
