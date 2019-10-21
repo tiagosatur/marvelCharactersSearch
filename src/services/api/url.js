@@ -7,8 +7,8 @@ const CHARACTERS_URL = BASE_URL + '/characters';
 export default function mountURL() {
     let ts = new Date().getTime();
     let hash = CryptoJS.MD5(ts + PRIV_KEY + PUB_KEY).toString();
-    console.log('hash', PRIV_KEY)
     let url = `${CHARACTERS_URL}?ts=${ts}&apikey=${PUB_KEY}&hash=${hash}`;
 
     return url;
 }
+//console.log('url mount', mountURL())
