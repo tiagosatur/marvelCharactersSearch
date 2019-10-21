@@ -78,7 +78,7 @@ const Header = () => {
                     && (total !== null && total > 1) 
 
                     ? <Text style={styles.bottomText}>
-                        Encontramos { total } { total === 1 ? 'resultado' : 'resultados'} para o termo { debouncedSearchTerm }
+                        Encontramos { total } { total === 1 ? 'resultado' : 'resultados'} para o termo { `"${debouncedSearchTerm}"` }
                     </Text>
                     : null
                 }

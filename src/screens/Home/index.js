@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Router, Scene } from 'react-native-router-flux';
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,19 +7,25 @@ import {
   View,
   Text,
   StatusBar,
-} from 'react-native';
+  ActivityIndicator,
 
-import mountURL from '../../services/api/url';
+} from 'react-native';
+import { useAction } from '../../hooks';
+import CharacterList from './CharacterList';
+import { colors } from '../../styles';
 
 const Home = () => {
   const {
     search: {
-      isLoading
+      isLoading,
+      results
     }
 } = useSelector(state => state);
+const { searchTermAction } = useAction();
+
 
   useEffect(() => {  
-
+    searchTermAction('spider')
   }, []);  
 
   return (
@@ -32,10 +37,9 @@ const Home = () => {
           style={styles.scrollView}>
          
           <View style={styles.body}>
-            {
-              isLoading && <Text>Searching...</Text>
-            }
-            
+              { isLoading && <ActivityIndicator size="large" style={styles.loading} color={colors.primary} /> }
+
+              {results && <CharacterList list={results} />}
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -45,11 +49,14 @@ const Home = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: colors.gray.g04,
   },
   body: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: colors.gray.g04,
   },
+  loading: {
+    marginTop: 20,
+  }
 });
 
 export default Home;
