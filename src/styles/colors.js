@@ -5,6 +5,7 @@ export default {
         g01: '#dddddd',
         g02: '#cccccc',
         g03: '#4d4d4d',
+        g04: '#f5f5f5',
     },
     primary: '#D42026',
 };

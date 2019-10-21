@@ -7,8 +7,12 @@ import {
   View,
   Text,
   StatusBar,
+  ActivityIndicator,
+
 } from 'react-native';
+import { useAction } from '../../hooks';
 import CharacterList from './CharacterList';
+import { colors } from '../../styles';
 
 const Home = () => {
   const {
@@ -17,9 +21,11 @@ const Home = () => {
       results
     }
 } = useSelector(state => state);
+const { searchTermAction } = useAction();
+
 
   useEffect(() => {  
-
+    searchTermAction('spider')
   }, []);  
 
   return (
@@ -31,7 +37,7 @@ const Home = () => {
           style={styles.scrollView}>
          
           <View style={styles.body}>
-              { isLoading && <Text>Searching...</Text> }
+              { isLoading && <ActivityIndicator size="large" style={styles.loading} color={colors.primary} /> }
 
               {results && <CharacterList list={results} />}
           </View>
@@ -43,11 +49,14 @@ const Home = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: colors.gray.g04,
   },
   body: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: colors.gray.g04,
   },
+  loading: {
+    marginTop: 20,
+  }
 });
 
 export default Home;
