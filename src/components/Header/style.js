@@ -17,11 +17,13 @@ const styles = StyleSheet.create({
     },
     title: {
         ...commonHeadings,
+        fontFamily: 'Roboto-Black',
         fontWeight: '700',
         paddingRight: 4,
     },
     subtitle: {
         ...commonHeadings,
+        fontFamily: 'Roboto-Light',
     },
     titleRelative: {
         position: 'relative',
@@ -37,6 +39,7 @@ const styles = StyleSheet.create({
     label: {
         color: colors.primary,
         fontSize: 14,
+        fontFamily: 'Roboto-Light',
         marginBottom: 8,
     },
     heading: {
@@ -54,6 +57,8 @@ const styles = StyleSheet.create({
     },
     bottomText: {
         color: colors.white,
+        fontFamily: 'Roboto-Light',
+        fontSize: 14,
     }
 });
 

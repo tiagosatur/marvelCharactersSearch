@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Router, Scene } from 'react-native-router-flux';
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,13 +8,13 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
-import mountURL from '../../services/api/url';
+import CharacterList from './CharacterList';
 
 const Home = () => {
   const {
     search: {
-      isLoading
+      isLoading,
+      results
     }
 } = useSelector(state => state);
 
@@ -32,10 +31,9 @@ const Home = () => {
           style={styles.scrollView}>
          
           <View style={styles.body}>
-            {
-              isLoading && <Text>Searching...</Text>
-            }
-            
+              { isLoading && <Text>Searching...</Text> }
+
+              {results && <CharacterList list={results} />}
           </View>
         </ScrollView>
       </SafeAreaView>
