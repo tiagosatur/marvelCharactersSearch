@@ -11,4 +11,3 @@ export default function mountURL() {
 
     return url;
 }
-//console.log('url mount', mountURL())

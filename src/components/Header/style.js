@@ -8,12 +8,13 @@ const commonHeadings = {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        
+        padding: 16,
+    },
     searchBox: {
        flexDirection: 'row',
        justifyContent: 'space-between',
-    },
-    container: {
-        padding: 16,
     },
     title: {
         ...commonHeadings,
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         paddingVertical: 8,
         minHeight: 35,
+        elevation: 4,
        
     },
     bottomText: {

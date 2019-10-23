@@ -1,49 +1,48 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
-  Text,
-  StatusBar,
-  ActivityIndicator,
-
 } from 'react-native';
 import { useAction } from '../../hooks';
 import CharacterList from './CharacterList';
 import { colors } from '../../styles';
+import { Container, Loader, Pagination } from '../../components';
 
 const Home = () => {
   const {
     search: {
       isLoading,
-      results
+      results,
+      total,
+      term,
     }
 } = useSelector(state => state);
+
+
 const { searchTermAction } = useAction();
-
-
   useEffect(() => {  
-    searchTermAction('spider')
-  }, []);  
+    searchTermAction({term: 'spider'})
+  }, []);
+
+  function handlePageRequest({ offset, itemsPerPage}) {
+      searchTermAction({ term, offset, itemsPerPage })
+  }
 
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-         
-          <View style={styles.body}>
-              { isLoading && <ActivityIndicator size="large" style={styles.loading} color={colors.primary} /> }
-
-              {results && <CharacterList list={results} />}
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <Container>          
+        <View> 
+          { isLoading ?  
+              <Loader /> : 
+            results && <CharacterList list={results} /> 
+          }
+           <Pagination
+                total={total}
+                handlePageRequest={handlePageRequest}
+                itemsPerPage={4}
+            />
+        </View>
+    </Container>
   );
 };
 
@@ -52,10 +51,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.gray.g04,
   },
   body: {
-    backgroundColor: colors.gray.g04,
+    flex: 1,
   },
-  loading: {
-    marginTop: 20,
+
+  fullSize: {
+    flex: 1,
   }
 });
 

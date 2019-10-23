@@ -5,8 +5,8 @@ import { searchTerm } from '../store/actions';
 
 
 const useAction = () => {
-    const dispatch = useDispatch();
-    const makeAction = action => useCallback(data => dispatch(action(data)), [dispatch]);
+    const connectDispatch = useDispatch();
+    const makeAction = action => useCallback(data => connectDispatch(action(data)), [connectDispatch]);
 
     const searchTermAction = makeAction(searchTerm);
 

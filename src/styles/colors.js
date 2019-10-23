@@ -8,4 +8,7 @@ export default {
         g04: '#f5f5f5',
     },
     primary: '#D42026',
+    transparent: 'transparent',
+    underlay: 'rgba(255, 255, 255, 0.1)',
+    green: '#34a853',
 };

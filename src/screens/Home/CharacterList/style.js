@@ -4,9 +4,9 @@ import { colors } from '../../../styles';
 const avatarSize = 60;
 
 const styles = StyleSheet.create({
-    container: {},
     listItem: {
         alignItems: 'center',
+        backgroundColor: colors.white,
         borderBottomColor: colors.gray.g02,
         borderBottomWidth: 1,
         flexDirection: 'row',
