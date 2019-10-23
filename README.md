@@ -1,5 +1,5 @@
 # Introduction 
-Marvel Characters Search is an mobile application that allows the user to search marvel characters by their names. 
+Marvel Characters Search is a mobile application that allows the user to search marvel characters by their names. 
 
 # Pre-requisites
 You should have installed:
