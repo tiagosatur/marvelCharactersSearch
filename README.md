@@ -11,8 +11,9 @@ You should have installed:
 # Getting Started
 1.	Installation
     * `cd marvelCharactersSearch && yarn install`
-    * Create an account at Marvel and get the public and private keys.
+    * Create an account at [Marvel Developer](https://developer.marvel.com/) and get the public and private keys.
     * Create a file `keys.js` in the project root with this content: 
+
 ```
 export const PRIV_KEY = 'your private key'
 export const PUB_KEY = 'your public key'
@@ -26,8 +27,6 @@ export const PUB_KEY = 'your public key'
     * React
     * Redux
     * React Router Flux
-4.	API references
-    * It uses the marvel Api. Instructions are found at [Marvel Developer](https://developer.marvel.com/)
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 

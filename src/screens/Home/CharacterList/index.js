@@ -7,6 +7,7 @@ const CharacterList = ({ list }) => {
         <View style={styles.container}>
             <FlatList 
                 data={list}
+                keyExtractor={(item, i) => `list-item${i}`}
                 renderItem={({ item }) => 
                 <View style={styles.listItem}>
                     <Image

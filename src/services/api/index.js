@@ -1,13 +1,13 @@
 import mountURL from './url';
+import searchMiddleware from '../searchMiddleware';
 
 const customHeaders = new Headers({
     'Accept': 'application/json',
     'Content-Type': 'application/json; charset=utf-8'
 });
 
-export function searchCharactersService(term) {
-    
-    return fetch(`${mountURL()}&nameStartsWith=${term}`, {
+export function searchCharactersService({term, offset = 0, itemsPerPage = 4}) {
+    return fetch(`${mountURL()}&nameStartsWith=${term}&offset=${offset}&limit=${itemsPerPage}`, {
         method: 'GET',
         headers: customHeaders,
     })
@@ -18,5 +18,7 @@ export function searchCharactersService(term) {
         
         return res.json()
     })
-    .then(res => res);
+    .then(res => {
+        return searchMiddleware(res);
+    });
 }

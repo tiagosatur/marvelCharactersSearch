@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import Input from '../Input';
 import { useForm, useAction, useDebounce } from '../../hooks';
-import _ from 'lodash';
 
 import styles from './style';
 
 const Header = () => {
-
     const {
         search: {
             total,
         }
     } = useSelector(state => state);
-
 
 
     const { searchTermAction } = useAction();
@@ -30,11 +27,11 @@ const Header = () => {
         validateForm
     );
 
-    const debouncedSearchTerm = useDebounce(values.searchTerm, 800);
+    const debouncedSearchTerm = useDebounce(values.searchTerm, 500);
 
     useEffect(() => {
         if(debouncedSearchTerm && debouncedSearchTerm.length > 1) {
-            searchTermAction(debouncedSearchTerm)
+            searchTermAction({ term: debouncedSearchTerm })
         }
     }, [debouncedSearchTerm]);
 
@@ -44,7 +41,7 @@ const Header = () => {
     }
 
     function handleSearchSubmit() {
-        searchTermAction(values.searchTerm);
+        searchTermAction({ term: debouncedSearchTerm });
     }
 
     return(
@@ -82,9 +79,6 @@ const Header = () => {
                     </Text>
                     : null
                 }
-                    
-               
-
             </View>
         </View>
     );
