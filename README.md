@@ -6,7 +6,8 @@ Marvel Characters Search is a mobile application that allows the user to search 
 
 1. Search heroes
 2. Pagination
-3. Runs on android and ios platforms
+3. Hero details screen
+4. Runs on android and ios platforms
 
 # Pre-requisites
 
