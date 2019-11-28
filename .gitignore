@@ -57,7 +57,3 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
-
-
-# Env file with api keys
-keys.js

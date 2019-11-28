@@ -22,7 +22,7 @@ const App = () => {
         <Router>
           <Stack key="root">
             <Scene key="home" component={Home} initial navBar={Header} />
-            <Scene key="hero" component={Hero} navBar={Header} />
+            <Scene key="hero" component={Hero} title='Meu herói' />
           </Stack>
         </Router>
       </Provider>

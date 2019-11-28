@@ -3,7 +3,7 @@ import {Text, View, TouchableOpacity} from 'react-native';
 import {useSelector} from 'react-redux';
 import {Actions} from 'react-native-router-flux';
 import Input from '../Input';
-import {useForm, useAction, useDebounce} from '../../hooks';
+import {useForm, useAction, useDebounce, useInternet} from '../../hooks';
 
 import styles from './style';
 

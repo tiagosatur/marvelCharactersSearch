@@ -11,6 +11,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/netinfo": "^4.6.1",
     "crypto-js": "^3.1.9-1",
     "https-browserify": "0.0.1",
     "lodash": "^4.17.15",
