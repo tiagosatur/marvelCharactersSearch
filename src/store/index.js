@@ -2,9 +2,11 @@ import { combineReducers, compose, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 import search from './reducers/search'
+import hero from './reducers/hero'
 
 const combinedReducers =  combineReducers({
     search,
+    hero,
 });
 
 const middlewares = [thunk]

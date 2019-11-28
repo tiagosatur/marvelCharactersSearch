@@ -1,3 +1,7 @@
 export const SEARCH_PENDING = 'SEARCH_PENDING';
 export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
-export const SEARCH_FAIL = 'SEARCH_FAIL';
+export const SEARCH_FAIL    = 'SEARCH_FAIL';
+
+export const GET_HERO_PENDING = 'GET_HERO_PENDING';
+export const GET_HERO_SUCCESS = 'GET_HERO_SUCCESS';
+export const GET_HERO_FAIL    = 'GET_HERO_FAIL';

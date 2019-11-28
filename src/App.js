@@ -1,7 +1,7 @@
 import React from 'react';
-import { Provider } from 'react-redux'
+import {Provider} from 'react-redux';
 import store from './store';
-import { Router, Scene, Stack } from 'react-native-router-flux';
+import {Router, Scene, Stack} from 'react-native-router-flux';
 import {
   SafeAreaView,
   StyleSheet,
@@ -10,20 +10,24 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import { Home } from './screens';
-import { Header } from './components';
-
+import {Home, Hero} from './screens';
+import {Header} from './components';
+import {colors} from './styles';
 
 const App = () => {
-    return (
-        <Provider store={store}>
-            <Router>
-                <Stack key="root">
-                    <Scene key="home" component={Home} initial navBar={Header} />
-                </Stack>
-            </Router>
-        </Provider>
-    );
+  return (
+    <SafeAreaView forceInset={{top: 'always'}} style={{flex: 1}}>
+      <StatusBar backgroundColor={colors.primary} />
+      <Provider store={store}>
+        <Router>
+          <Stack key="root">
+            <Scene key="home" component={Home} initial navBar={Header} />
+            <Scene key="hero" component={Hero} title='Meu herói' />
+          </Stack>
+        </Router>
+      </Provider>
+    </SafeAreaView>
+  );
 };
 
 const styles = StyleSheet.create({

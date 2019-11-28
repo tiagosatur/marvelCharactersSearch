@@ -4,7 +4,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import { useAction } from '../../hooks';
+import { useAction, useInternet } from '../../hooks';
 import CharacterList from './CharacterList';
 import { colors } from '../../styles';
 import { Container, Loader, Pagination } from '../../components';
@@ -19,10 +19,11 @@ const Home = () => {
     }
 } = useSelector(state => state);
 
+  const { searchTermAction } = useAction();
+  const isOnline = useInternet();
 
-const { searchTermAction } = useAction();
   useEffect(() => {  
-    searchTermAction({term: 'spider'})
+    isOnline && searchTermAction({term: 'spider'})
   }, []);
 
   function handlePageRequest({ offset, itemsPerPage}) {
